@@ -36,11 +36,11 @@ jobs:
       -image: circleci/node:13.8.0
 
     steps:
-      -checkout
-      -run:
-        name: "Say Name"
-        command: |
-        echo $ENV_NAME
+      - checkout
+      - run:
+          name: "Say Name"
+          command: |
+          echo $ENV_NAME
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
