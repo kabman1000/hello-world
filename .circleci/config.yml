@@ -39,7 +39,7 @@ jobs:
       -checkout
       -run:
         name: "Say Name"
-      command: |
+        command: |
         echo $ENV_NAME
 
 # Invoke jobs via workflows
