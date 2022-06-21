@@ -24,4 +24,4 @@ jobs:
 workflows:
   print_error:
     jobs:
-      -mistake_job
+      - mistake_job
