@@ -2,26 +2,26 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-commands:
-  print_pipeline_id:
-    description: "A very simple command for printing pipeline id"
-    steps:
-      - run: echo ${CIRCLE_WORKFLOW_ID}
-
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  print_id:
+  
+  mistake_job:
     docker:
       - image: circleci/node:13.8.0
 
     steps:
-      - print_pipeline_id
+      - checkout
+      - run: exit 1
+      - run: 
+          name: "Error, step returned a non zero exit code"
+          command: echo "non zero exit code"
+          when: on_fail
 
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  print_pipeline:
+  print_error:
     jobs:
-      - print_id
+      -mistake_job
